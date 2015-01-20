@@ -1,0 +1,75 @@
+<template name="tacticalSide">
+	<a href="/soleus/tactical/locking">
+		<div class="navCard navCard1 navCardSelected">
+			Locking
+		</div>
+	</a>
+	<a href="/soleus/tactical/weapons">
+		<div class="navCard navCard2">
+			Weapons
+		</div>
+	</a>
+	<a href="/soleus/tactical/shielding">
+		<div class="navCard navCard3">
+			Shielding
+		</div>
+	</a>
+</template>
+
+<template name="locking">
+	<h1>Locking</h1>
+	<select id="lockingDropdown">
+		{{#each shipList}}
+			<option value="{{name}}">{{name}}</option>
+		{{/each}}
+	</select>
+	<h3>Available Ships</h3>
+	<ul class="noList">
+		{{#each shipList}}
+			{{name}}
+			<ul>
+				<li>Shields: {{shields}}%</li>
+				<li>Phasers: {{phasers}}</li>
+				<li>Torpedoes: {{torpedoes}}</li>
+				<li>Engines: {{engines}}%</li>
+			</ul>
+		{{/each}}
+	</ul>
+</template>
+
+<template name="weapons">
+	<div id="shipList">
+		{{#each ship}}
+			<h2>{{name}}</h2>
+			<ul class="noList">
+				<li>Shields: {{shields}}%</li>
+				<li>Phasers: {{phasers}}</li>
+				<li>Torpedoes: {{torpedoes}}</li>
+				<li>Engines: {{engines}}%</li>
+			</ul>
+		{{/each}}
+		<h2>First Phasers:</h2>
+		<div id="phasers1Bar" class="jProgress jPhasers"><div></div></div>
+		<div id="charge1" class="btn btn-success">Charge First Phasers</div>
+		<div id="discharge1" class="btn btn-danger">Fire First Phasers</div>
+		<h2>Second Phasers:</h2>
+		<div id="phasers2Bar" class="jProgress jPhasers"><div></div></div>
+		<div id="charge2" class="btn btn-success">Charge Second Phasers</div>
+		<div id="discharge2" class="btn btn-danger">Fire Second Phasers</div>
+		<h2>Torpedoes: {{torpedoesAmount}}</h2>
+		<div id="fireTorpedo" class="btn btn-danger">Fire Torpedo</div>
+	</div>
+
+</template>
+
+<template name="shielding">
+	<div class="shieldsButtons">
+		<div class="btn btn-warning" id="toggleShields">Turn Shields {{turnShields}}</div>
+	</div>
+	<h3>Top shields: {{topShields}}%</h3>
+	<h3>Bottom shields: {{bottomShields}}%</h3>
+	<h3>Front shields: {{frontShields}}%</h3>
+	<h3>Back shields: {{backShields}}%</h3>
+	<h3>Right shields: {{rightShields}}%</h3>
+	<h3>Left shields: {{leftShields}}%</h3>
+</template>

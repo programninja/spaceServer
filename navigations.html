@@ -1,0 +1,50 @@
+<template name="navigationsSide">
+	<a href="/soleus/navigations/course">
+		<div class="navCard navCard1 navCardSelected">
+			Course
+		</div>
+	</a>
+	<a href="/soleus/navigations/speed">
+		<div class="navCard navCard2">
+			Speed
+		</div>
+	</a>
+	<a href="/soleus/navigations/manualcontrol">
+		<div class="navCard navCardSmall navCard3">
+			Manual Control
+		</div>
+	</a>
+</template>
+
+<template name="course">
+	This is Course.
+</template>
+
+<template name="speed">
+	<div id="speedButtons">
+		<br />
+		<div id="warp0Button" class="btn btn-primary warpButton">Full Stop</div>
+		<br />
+		<div id="warp1Button" class="btn btn-success warpButton">Warp 1</div>
+		<div id="warp2Button" class="btn btn-success warpButton">Warp 2</div>
+		<div id="warp3Button" class="btn btn-success warpButton">Warp 3</div>
+		<br />
+		<div id="warp4Button" class="btn btn-warning warpButton">Warp 4</div>
+		<div id="warp5Button" class="btn btn-warning warpButton">Warp 5</div>
+		<div id="warp6Button" class="btn btn-warning warpButton">Warp 6</div>
+		<br />
+		<div id="warp7Button" class="btn btn-danger warpButton">Warp 7</div>
+		<div id="warp8Button" class="btn btn-danger warpButton">Warp 8</div>
+		<div id="warp9Button" class="btn btn-danger warpButton">Warp 9</div>
+		<br />
+		<div id="warp10Button" class="btn btn-inverse warpButton">Warp 10</div>
+		<div id="warp11Button" class="btn btn-inverse warpButton">Warp 11</div>
+		<div id="warp12Button" class="btn btn-inverse warpButton">Warp 12</div>
+		<br />
+		<div id="speedButton" class="btn btn-default warpButton">Speed: {{speed}}</div>
+	</div>
+</template>
+
+<template name="manualControl">
+	This is Manual Control.
+</template>

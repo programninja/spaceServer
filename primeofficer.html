@@ -1,0 +1,39 @@
+<template name="primeOfficerSide">
+	<a href="/soleus/primeofficer/missiondata">
+		<div class="navCard navCard1 navCardSelected">
+			Mission Data
+		</div>
+	</a>
+	<a href="/soleus/primeofficer/hqmessage">
+		<div class="navCard navCardSmall navCard2">
+			HQ Messaging
+		</div>
+	</a>
+	<a href="/soleus/primeofficer/ship">
+		<div class="navCard navCardSmall navCard3">
+			Ship Information
+		</div>
+	</a>
+</template>
+
+<template name="missionData">
+	This is Mission Data.
+</template>
+
+<template name="HQMessage">
+	<textarea id="hqMessagingBoxClient" rows="10" placeholder="Message to HeadQuarters" class="center"></textarea>
+	<div class="btn btn-success center" id="hqMessagingButtonClient">Send</div>
+	<div id="hqMessagingReplyClient">
+		{{{reply}}}
+	</div>
+</template>
+
+<template name="ship">
+	<div id="shipInformation">
+		<ul class="noList">
+			{{#each values}}
+			<li>{{name}}: {{value}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>

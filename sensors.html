@@ -1,0 +1,47 @@
+<template name="sensorsSide">
+	<a href="/soleus/sensors/scanning">
+		<div class="navCard navCard1 navCardSelected">
+			Scanning
+		</div>
+	</a>
+	<a href="/soleus/sensors/inbox">
+		<div class="navCard navCard2">
+			Inbox
+		</div>
+	</a>
+	<a href="/soleus/sensors/sendmessage">
+		<div class="navCard navCardSmall navCard3">
+			Send Message
+		</div>
+	</a>
+</template>
+
+<template name="scanning">
+	<div id="sensorScanning">
+		<textarea id="sensorsScanning" placeholder="Scanning Parameters" rows="17" class="center"></textarea>
+		<div class="btn btn-success center" id="sendScan">Send Message</div>
+		<div id="scanResults" class="center">
+			<b>Scanning for: {{scanning}}</b>
+			<br />
+			<b>Results: {{results}}</b>
+		</div>
+	</div>
+</template>
+
+<template name="inbox">
+	<h2>P.S.S. Soleus,</h2>
+	{{{message}}}
+	<h2>{{ship}}</h2>
+</template>
+
+<template name="sendMessage">
+	<div id="sendMessage">
+		<select id="messageDropdown">
+			{{#each shipList}}
+				<option value="{{name}}">{{name}}</option>
+			{{/each}}
+		</select>
+		<textarea id="messagingBoxClient" rows="25" placeholder="Message"></textarea>
+		<div class="btn btn-success" id="sendMessageClient">Send</div>
+	</div>
+</template>

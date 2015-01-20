@@ -1,0 +1,231 @@
+body {
+	background-color: #000000;
+	color: #FFFFFF;
+	width: 100%;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+* {
+	cursor: url('/media/cursor.png'), default !important;
+}
+a:hover {
+	cursor: pointer;
+}
+.btn {
+	margin: 2px;
+}
+#name {
+	width: 96%;
+	margin: 2%;
+}
+#selectStationButtons {
+	z-index: -1;
+	padding: 2%;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+#selectStationButtons * {
+	margin: 0;
+	margin-top: 4%;
+	font-size: 20px;
+	float: left;
+	width: 20%;
+}
+#selectStationButtons .btn-inverse {
+	width: 100%;
+	margin-top: 2%;
+}
+#selectShipButtons {
+	padding: 2%;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+#selectShipButtons * {
+	margin: 0;
+	margin-top: 2%;
+	font-size: 30px;
+	float: left;
+	width: 50%;
+}
+#header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 10%;
+	background-color: #522;
+	border-bottom: 1px solid #FF9999;
+	box-shadow: 0 0 15px #522;
+	z-index: 2;
+}
+#side {
+	position: fixed;
+	height: 90%;
+	width: 20%;
+	top: 10%;
+	left: 0;
+	background-color: #999999;
+	border: 2px solid #999999;
+	box-shadow: 0 0 15px #999999;
+}
+#content {
+	width: 80%;
+	position: fixed;
+	top: 10%;
+	left: 20%;
+	margin: .2in;
+}
+#headerStation {
+	position: fixed;
+	width: 20%;
+	left: 1%;
+	top: 0;
+}
+#headerShip {
+	position: fixed;
+	width: 20%;
+	left: 40%;
+	top: 0;
+	color: #FFFFCC;
+}
+#headerName {
+	position: fixed;
+	width: 15%;
+	left: 85%;
+	top: 0;
+	color: #9999FF;
+}
+.navCard {
+	position: fixed;
+	width: 20%;
+	height: 10%;
+	left: 0;
+	color: #CCCCCC;
+	background-color: #333333;
+	border: 2px solid #999999;
+	border-radius: 10px;
+	font-size: 40px;
+	padding: .1in;
+	padding-top: .2in;
+}
+.navCardSmall {
+	font-size: 30px;
+}
+.navCardSelected {
+	background-color: #CC0000;
+	color: #EEEE77;
+	border: 2px solid #CC0000;
+}
+.navCard1 {
+	top: 10%;
+}
+.navCard2 {
+	top: 20%;
+}
+.navCard3 {
+	top: 30%;
+}
+.progressBar {
+	width: 95%;
+	margin: 0;
+	height: 15px;
+	background-color: #333333;
+}
+.powerHeader {
+	margin: 0;
+}
+.trueDamage {
+	color: #00FF00 !important;
+}
+.coolantBar {
+	width: 95%;
+	height: 15px;
+}
+#coolantBars * {
+	margin: 0;
+}
+.coolantBar {
+	background-color: #666666;
+}
+.coolantBar .ui-progressbar-value {
+	background-color: #CC0000;
+}
+#powerBars {
+	max-height: 90%;
+}
+.shieldsButtons {
+	text-align: center;
+}
+#hqMessagingBoxClient {
+	resize: none;
+	height: 10%;
+	width: 90%;
+}
+#hqMessagingButtonClient {
+	width: 90%;
+	margin-bottom: 20px;
+}
+#hqMessagingReplyClient {
+	width: 90%;
+	padding-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	border-left: 5px solid #19D8DD;
+}
+#speedButtons {
+	position: fixed;
+	top: 10%;
+	left: 20%;
+	margin: 0;
+	padding: 0;
+	width: 80%;
+	height: 90%;
+}
+#speedButtons * {
+	vertical-align: middle;
+	display: block;
+	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	width: 90%;
+	height: 5%;
+	font-size: 25px;
+	border-radius: 50px;
+}
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.noList {
+	list-style-type: none;
+	margin-left: 0;
+}
+#testBar {
+	display: block;
+	height: 10px;
+	width: 500px;
+	background-color: #FFFFFF;
+}
+#sendMessage * {
+	display: block;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	resize: none;
+}
+#sensorScanning * {
+	width: 90%;
+}

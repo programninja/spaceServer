@@ -1,0 +1,126 @@
+<template name="soleusFlightDirectorLogin">
+	<input id="flightPassword" type="password" placeholder="Password" />
+</template>
+
+<template name="soleusFlightDirector">
+<div id="flightDirector">
+	<div id="stations>">
+		<h1>Stations</h1>
+		<ul class="noList">
+			{{#each stations}}
+				<li class="itemStation" id="station{{name}}">{{station}}: {{name}}</li>
+			{{/each}}
+		</ul>
+		<button class="btn btn-warning" id="clearStations">Clear Stations</button>
+	</div>
+	<br />
+	<div id="meSpeakBox">
+		<h1>Speaking</h1>
+		<textarea placeholder="Computer Speak" id="computerSpeakTextbox" class="meSpeakTextbox"></textarea>
+		<textarea placeholder="High Speak" id="highSpeakTextbox" class="meSpeakTextbox"></textarea>
+		<br />
+		<textarea placeholder="Deep Speak" id="deepSpeakTextbox" class="meSpeakTextbox"></textarea>
+		<textarea placeholder="Servant Speak" id="servantSpeakTextbox" class="meSpeakTextbox"></textarea>
+	</div>
+	<div id="powerDirector">
+		<h1>Power</h1>
+		<ul id="powerList" class="noList">
+			<li id="powerWarp" class="powerListItem">Warp: {{warp}} / 200 / {{warpCoolant}}%</li>
+			<li id="powerPhasers" class="powerListItem">Phasers: {{phasersPower}} / 100 / {{phasersCoolant}}%</li>
+			<li id="powerTorpedoes" class="powerListItem">Torpedoes: {{torpedoesPower}} / 50 / {{torpedoesCoolant}}%</li>
+			<li id="powerShields" class="powerListItem">Shields: {{shieldsPower}} / 150 / {{shieldsCoolant}}%</li>
+			<li id="powerComputers" class="powerListItem">Computers: {{computers}} / 100 / {{computersCoolant}}%</li>
+			<li id="powerSystems" class="powerListItem">Systems: {{systems}} / 100 / {{systemsCoolant}}%</li>
+			<li id="powerCommunications" class="powerListItem">Communications: {{communications}} / 50 / {{communicationsCoolant}}%</li>
+			<li id="powerSensors" class="powerListItem">Sensors: {{sensorsPower}} / 50 / {{sensorsCoolant}}%</li>
+			<li id="powerMain Computer" class="powerListItem">Main Computer: {{mainComputer}} / 100 / {{mainComputerCoolant}}%</li>
+			<li>Total Power: {{totalPower}} / <input type="text" id="powerTotalText" class="shortText" placeholder="900" /></li>
+			<li id="coolantDirector">Coolant: {{coolant}}</li>
+		</ul>
+		<div class="btn btn-warning" id="clearPower">Reset</div>
+	</div>
+	<div id="scanningDirector">
+		<h4>Scanning: {{scanningParams}}</h4>
+		<textarea placeholder="Scanning Results" id="scanningResultsTextbox"></textarea>
+		<br />
+		<div class="btn btn-warning" id="clearScanning">Reset Scanning</div>
+	</div>
+	<div id="lowerRightButtons">
+		<div class="btn btn-danger lowerRightButton" id="destroyShipDirector">Destroy Ship</div>
+		<div class="btn btn-danger lowerRightButton" id="resetAllButton">Reset All</div>
+	</div>
+	<div id="shieldsDirector">
+		<h1>Shields {{shieldsOn}}</h1>
+		<ul class="noList">
+			<li>Top: <input type="text" id="topShieldsBox" class="shortText" placeholder="100" />%</li>
+			<li>Bottom: <input type="text" id="bottomShieldsBox" class="shortText" placeholder="100" />%</li>
+			<li>Front: <input type="text" id="frontShieldsBox" class="shortText" placeholder="100" />%</li>
+			<li>Back: <input type="text" id="backShieldsBox" class="shortText" placeholder="100" />%</li>
+			<li>Right: <input type="text" id="rightShieldsBox" class="shortText" placeholder="100" />%</li>
+			<li>Left: <input type="text" id="leftShieldsBox" class="shortText" placeholder="100" />%</li>
+		</ul>
+	</div>
+	<div id="damageDirector">
+		<h1>Damage</h1>
+		<ul class="noList">
+			{{#each damageList}}
+				<li id="damage{{name}}" class="damageItem">{{focus}} {{name}}</li>
+			{{/each}}
+		</ul>
+		<input type="text" id="damageInsert" placeholder="Append Damage" />
+		<br />
+		<div id="clearEngineering" class="btn btn-warning">Clear Damage</div>
+	</div>
+	<div id="shipDirector">
+		<h1>Ships</h1>
+		<ul class="noList">
+			{{#each shipList}}
+				<li><span id="ship{{name}}" class="shipItem">{{name}}</span>; Phasers/Torpedoes <input id="shipsPhasers{{name}}" class="shortText shipsPhasersText" type="text" placeholder="{{phasers}}" /> <input  id="shipsTorpedoes{{name}}" class="shortText shipsTorpedoesText" type="text" placeholder="{{torpedoes}}" />; Shields <input id="shipsShields{{name}}" class="shortText shipsShieldsText" type="text" placeholder="{{shields}}" />; Engines <input id="shipsEngines{{name}}" class="shortText shipsEnginesText" type="text" placeholder="{{engines}}" /></li>
+			{{/each}}
+		</ul>
+		<input type="text" class="shipBox center insertShip" id="shipName" placeholder="Name" />
+		<br />
+		<input type="text" class="shipBox center insertShip" id="shipShields" placeholder="Shields" />
+		<br />
+		<input type="text" class="shipBox center insertShip" id="shipPhasers" placeholder="Phasers" />
+		<br />
+		<input type="text" class="shipBox center insertShip" id="shipTorpedoes" placeholder="Torpedoes" />
+		<br />
+		<input type="text" class="shipBox center insertShip" id="shipEngines" placeholder="Engines" />
+		<br />
+		<div id="insertShip" class="btn btn-success">Insert Ship</div>
+		<div id="clearShips" class="btn btn-warning">Clear Ships</div>
+	</div>
+	<div id="hqMessageDirector">
+		<textarea id="hqMessagingBoxDirector" rows="10" placeholder="Message from HeadQuarters"></textarea>
+		<div class="btn btn-success center" id="hqMessagingButtonDirector">Send</div>
+		{{hqMessage}}
+	</div>
+	<div id="speedDirector">
+	<h1>{{speed}}</h1>
+	</div>
+	<div id="weaponsDirector">
+		<ul class="noList">
+			<li>Phasers 1: {{ShipPhasers1}}% Charged</li>
+			<li>Phasers 2: {{ShipPhasers2}}% Charged</li>
+			<li>Torpedoes: <input type="text" class="weaponBox" id="boxTorpedoes" placeholder="{{ShipTorpedoes}}" /></li>
+		</ul>
+	</div>
+	<div id="shipMessageDirector">
+		<input type="text" id="shipMessageNameDirector" placeholder="Name" />
+		<textarea id="shipMessageBoxDirector" rows="9" placeholder="Ship's Messaging"></textarea>
+		<div class="btn btn-success" id="sendShipMessage">Send</div>
+	</div>
+	<div id="shipMessageDirector2">
+		{{#each shipMessage}}
+			<h1>{{ship}}</h1>
+			{{text}}
+		{{/each}}
+	</div>
+</div>
+</template>
+<template name="mainViewscreen">
+	<div id="mainScreen">
+		<audio id="music"></audio>
+	</div>
+</template>

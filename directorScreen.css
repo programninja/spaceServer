@@ -1,0 +1,103 @@
+#flightDirector {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 1%;
+	background-color: #333333;
+	border: 3px solid #000000;
+	border-radius: 5px;
+	color: #EEEEEE;
+	cursor: default;
+}
+#stations {
+	width: 10%;
+	height: 10%;
+}
+#powerDirector {
+	position: fixed;
+	right: 30%;
+	top: 0;
+}
+#lowerRightButtons {
+	position: fixed;
+	bottom: 2%;
+	right: 2%;
+	width: 10%;
+}
+.lowerRightButton {
+	float: right;
+}
+.shortText {
+	width: 40px;
+}
+.shipBox {
+	width: 100%;
+}
+#scanningDirector {
+	width: 15%;
+}
+#shieldsDirector {
+	position: fixed;
+	right: 2%;
+	top: 2%;
+}
+#scanningResultsTextbox {
+	width: 100%;
+}
+#damageDirector {
+	position: fixed;
+	width: 15%;
+	right: 47%;
+	top: 1%;
+}
+#shipDirector {
+	position: fixed;
+	left: 37%;
+	top: 50%;
+	width: 35%;
+}
+#shipDirector * {
+	margin-bottom: 4px;
+}
+#hqMessagingBoxDirector {
+	display: block;
+	width: 100%;
+}
+#shipMessageDirector * {
+	display: block;
+	width: 100%;
+}
+#shipMessageDirector {
+	position: fixed;
+	width: 19%;
+	left: 17%;
+	bottom: 10%;
+}
+#shipMessageDirector2 {
+	position: fixed;
+	width: 19%;
+	left: 17%;
+	top: 1%;
+}
+#weaponsDirector {
+	position: fixed;
+	left: 1%;
+	bottom: 1%;
+}
+#hqMessageDirector {
+	position: fixed;
+	width: 25%;
+	right: 2%;
+	top: 40%;
+	max-width: 25%;
+}
+#flightPassword {
+	margin: 2%;
+	width: 96%;
+}
+#mainScreen {
+	
+}

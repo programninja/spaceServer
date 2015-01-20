@@ -1,0 +1,57 @@
+<head>
+  <title>Space Center</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<template name="home">
+	<div id="selectShipButtons">
+		<a href="/soleus" class="btn btn-lg btn-primary">P.S.S. Soleus</a>
+		<a href="#" class="btn btn-lg btn-primary">S.H.I.E.L.D. Helicarrier</a>
+	</div>
+</template>
+
+<template name="soleusHome">
+	<input type="text" id="name" placeholder="Name" />
+	<div id="selectStationButtons">
+		<a href="/soleus/engineering/damage" class="btn btn-primary" id="engineeringButton">Engineering</a>
+		<a href="/soleus/navigations/course" class="btn btn-primary" id="navigationsButton">Navigations</a>
+		<a href="/soleus/sensors/scanning" class="btn btn-primary" id="sensorsButton">Sensors</a>
+		<a href="/soleus/primeofficer/missiondata" class="btn btn-primary" id="primeOfficerButton">Prime Officer</a>
+		<a href="/soleus/tactical/locking" class="btn btn-primary" id="tacticalButton">Tactical</a>
+		<br />
+		<a href="/soleus/flightdirector" id="flightDirectorButton" class="btn btn-inverse">Flight Director</a>
+		<br />
+		<a href="/soleus/mainviewscreen" id="mainViewscreenButton" class="btn btn-inverse">Main Viewscreen</a>
+	</div>
+</template>
+
+<template name="header">
+	<div id="headerStation">
+		<h1>{{station}}</h1>
+	</div>
+	<div id="headerShip">
+		<h1>P.S.S. Soleus</h1>
+	</div>
+	<div id="headerName">
+		<h1>{{name}}</h1>
+	</div>
+</template>
+
+<template name="layout">
+	<div id="header">
+		{{> yield "header"}}
+	</div>
+	<div id="side">
+		{{> yield "sidebar"}}
+	</div>
+	<div id="content">
+		{{> yield "content"}}
+	</div>
+</template>
+
+<template name="notFound">
+	<div style="text-align:center">
+		<h1>404 Error</h1>
+		<p>Page not found; please contact your Flight Director for assistance.</p>
+	</div>
+</template>

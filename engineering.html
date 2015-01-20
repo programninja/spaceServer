@@ -1,0 +1,75 @@
+<template name="engineeringSide">
+	<a href="/soleus/engineering/damage">
+		<div class="navCard navCard1 navCardSelected">
+			Damage
+		</div>
+	</a>
+	<a href="/soleus/engineering/coolant">
+		<div class="navCard navCard2">
+			Coolant
+		</div>
+	</a>
+	<a href="/soleus/engineering/power">
+		<div class="navCard navCard3">
+			Power
+		</div>
+	</a>
+</template>
+
+<template name="damage">
+	<h2>Broken Items:</h2>
+	<ul class="noList">
+		{{#each damageList}}
+			<li id="client{{name}}" class="btn btn-lg {{focus}}Damage clientDamage">{{name}}</li><br />
+		{{/each}}
+	</ul>
+	Fixing {{damageFocus}}
+</template>
+
+<template name="coolant">
+	<div id="coolantBars">
+		<h3>Warp</h3>
+		<div class="jProgress jDefault coolantBar" id="coolWarp"><div></div></div>
+		<h3>Phasers</h3>
+		<div class="jProgress jDefault coolantBar" id="coolPhasers"><div></div></div>
+		<h3>Torpedoes</h3>
+		<div class="jProgress jDefault coolantBar" id="coolTorpedoes"><div></div></div>
+		<h3>Shields</h3>
+		<div class="jProgress jDefault coolantBar" id="coolShields"><div></div></div>
+		<h3>Computers</h3>
+		<div class="jProgress jDefault coolantBar" id="coolComputers"><div></div></div>
+		<h3>Systems</h3>
+		<div class="jProgress jDefault coolantBar" id="coolSystems"><div></div></div>
+		<h3>Communications</h3>
+		<div class="jProgress jDefault coolantBar" id="coolCommunications"><div></div></div>
+		<h3>Sensors</h3>
+		<div class="jProgress jDefault coolantBar" id="coolSensors"><div></div></div>
+		<h3>Main Computer</h3>
+		<div class="jProgress jDefault coolantBar coolMainComputer" id="coolMain Computer"><div></div></div>
+		<h3>Total Remaining Coolant: {{coolant}}</h3>
+	</div>
+</template>
+
+<template name="power">
+	<div id="powerBars">
+		<h3 class="powerHeader">Warp: {{warp}} / 200</h3>
+		<div class="progressBar" id="warpBar"></div>
+		<h3 class="powerHeader">Phasers: {{phasers}} / 100</h3>
+		<div class="progressBar" id="phasersBar"></div>
+		<h3 class="powerHeader">Torpedoes: {{torpedoes}} / 50</h3>
+		<div class="progressBar" id="torpedoesBar"></div>
+		<h3 class="powerHeader">Shields: {{shields}} / 150</h3>
+		<div class="progressBar" id="shieldsBar"></div>
+		<h3 class="powerHeader">Computers: {{computers}} / 100</h3>
+		<div class="progressBar" id="computersBar"></div>
+		<h3 class="powerHeader">Systems: {{systems}} / 100</h3>
+		<div class="progressBar" id="systemsBar"></div>
+		<h3 class="powerHeader">Communications: {{communications}} / 50</h3>
+		<div class="progressBar" id="communicationsBar"></div>
+		<h3 class="powerHeader">Sensors: {{sensors}} / 50</h3>
+		<div class="progressBar" id="sensorsBar"></div>
+		<h3 class="powerHeader">Main Computer: {{mainComputer}} / 100</h3>
+		<div class="progressBar" id="mainComputerBar"></div>
+		<h3 class="powerHeader">Total Power: {{totalPower}} / {{power}}</h3>
+	</div>
+</template>
