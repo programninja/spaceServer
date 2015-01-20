@@ -1353,12 +1353,12 @@ Meteor.methods({
       };
       if (Meteor.isClient) {
         setTimeout(function() {
-          window.location.href = '/soleus/fl/' + Misc.findOne({name: 'pwd'}).value;
-        }, 3000);
+          Router.go('/soleus/fl/' + Misc.findOne({name: 'pwd'}).value);
+        }, 100);
       }
     } else {
       if (Meteor.isClient) {
-        window.location.href = "/soleus";
+        Router.go("/soleus");
       };
     };
     return false;
