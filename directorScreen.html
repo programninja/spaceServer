@@ -103,7 +103,7 @@
 		<ul class="noList">
 			<li>Phasers 1: {{ShipPhasers1}}% Charged</li>
 			<li>Phasers 2: {{ShipPhasers2}}% Charged</li>
-			<li>Torpedoes: <input type="text" class="weaponBox" id="boxTorpedoes" placeholder="{{ShipTorpedoes}}" /></li>
+			<li>Torpedoes: <input type="text" class="weaponBox shortText" id="boxTorpedoes" placeholder="{{ShipTorpedoes}}" /></li>
 		</ul>
 	</div>
 	<div id="shipMessageDirector">
@@ -121,6 +121,8 @@
 </template>
 <template name="mainViewscreen">
 	<div id="mainScreen">
-		<audio id="music"></audio>
+		<audio id="musicTag">
+			<source src="{{audioSrc}}" id="sourceMusic" />
+		</audio>
 	</div>
 </template>

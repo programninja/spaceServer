@@ -109,11 +109,13 @@ if (Meteor.isClient) {
   Session.setDefault("meSpeak", false);
 
   ready = function() {
+    audio = document.getElementById("musicTag"); 
     meSpeak.loadConfig("/mespeak_config.json");
     meSpeak.loadVoice("/voices/en/en-us.json");
     $(document).bind('contextmenu', function(e){
       return false;
-    }); 
+    });
+
     if (Session.get("station") == "Main Viewscreen") {
       resetCollectionMisc();
       meSpeakLoop();
@@ -273,9 +275,17 @@ if (Meteor.isClient) {
 
   $(window).load(function() {
     setTimeout(function() {
+      var audio = document.getElementById("musicTag");
       ready();
     }, 3000);
   });
+
+  function playMusic() { 
+    musicTag.play(); 
+  } 
+  function pauseMusic() { 
+    musicTag.pause(); 
+  }
 
   setInput = function() {
     Session.set("name", document.getElementById('name').value);
@@ -338,7 +348,8 @@ if (Meteor.isClient) {
     Misc.insert({name: "ClientToHQ", value: ""});
     if (typeof Misc.findOne({name: 'pwd'}) == 'undefined') {
       Misc.insert({name: 'pwd'});
-    }
+    };
+    Misc.insert({name: 'Music', source: '/music/src1.mp3'});
   };
 
   resetCollectionShip = function() {
@@ -670,6 +681,12 @@ if (Meteor.isClient) {
     },
     name: function() {
       return Session.get("name");
+    }
+  });
+
+  Template.mainViewscreen.helpers({
+    audioSrc: function() {
+      return Misc.findOne({name: 'Music'}).source;
     }
   });
 
@@ -1229,6 +1246,13 @@ if (Meteor.isClient) {
       setInput();
       Session.set("station", "Tactical");
       insertStation("Tactical");
+    },
+    'click #mainViewscreenButton': function() {
+      Router.go('/soleus/mainviewscreen');
+      setTimeout(function() {
+        ready();
+        audio.play();
+      }, 10);
     }
   });
 
