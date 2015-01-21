@@ -1221,6 +1221,9 @@ if (Meteor.isClient) {
       torpedoesStr = document.getElementById('shipTorpedoes').value;
       torpedoes = parseInt(torpedoesStr);
       insertShip(name,shields,phasers,engines,torpedoes);
+    },
+    'click .musicButton': function(event) {
+      Misc.update(Misc.findOne({name: 'Music'})._id, {$set: {source: event.target.id.slice(5)}});
     }
   });
 

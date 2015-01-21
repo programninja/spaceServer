@@ -98,6 +98,11 @@
 	margin: 2%;
 	width: 96%;
 }
+#audioDirector {
+	position: fixed;
+	bottom: 2%;
+	left: 17%;
+}
 #mainScreen {
 	
 }
