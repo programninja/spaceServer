@@ -109,7 +109,8 @@ if (Meteor.isClient) {
   Session.setDefault("meSpeak", false);
 
   ready = function() {
-    audio = document.getElementById("musicTag"); 
+    audio = document.getElementById("musicTag");
+    audioSource = Misc.findOne({name: 'Music'}).source;
     meSpeak.loadConfig("/mespeak_config.json");
     meSpeak.loadVoice("/voices/en/en-us.json");
     $(document).bind('contextmenu', function(e){
@@ -280,13 +281,6 @@ if (Meteor.isClient) {
     }, 3000);
   });
 
-  function playMusic() { 
-    musicTag.play(); 
-  } 
-  function pauseMusic() { 
-    musicTag.pause(); 
-  }
-
   setInput = function() {
     Session.set("name", document.getElementById('name').value);
     return document.getElementById('name').value;
@@ -349,7 +343,7 @@ if (Meteor.isClient) {
     if (typeof Misc.findOne({name: 'pwd'}) == 'undefined') {
       Misc.insert({name: 'pwd'});
     };
-    Misc.insert({name: 'Music', source: '/music/src1.mp3'});
+    Misc.insert({name: 'Music', source: 'src1'});
   };
 
   resetCollectionShip = function() {
@@ -566,6 +560,15 @@ if (Meteor.isClient) {
   progressBar = function(percent, $element, len) {
     var progressBarWidth = percent * $element.width() / 100;
     $element.find('div').animate({ width: progressBarWidth }, len).html();
+  };
+
+  loadAudio = function(name) {
+    audio.pause();
+    Misc.update(Misc.findOne({name: 'Music'})._id, {$set: {source: name}});
+    setTimeout(function() {
+      audio.load();
+      audio.play();
+    }, 10);
   }
 
   Template.coolant.helpers({
@@ -1251,7 +1254,7 @@ if (Meteor.isClient) {
       Router.go('/soleus/mainviewscreen');
       setTimeout(function() {
         ready();
-        audio.play();
+        loadAudio(Misc.findOne({name: 'Music'}).source);
       }, 10);
     }
   });
@@ -1259,7 +1262,7 @@ if (Meteor.isClient) {
   Template.soleusFlightDirectorLogin.events({
     'keypress #flightPassword': function(event) {
       if (event.keyCode == 13) {
-        Meteor.call('checkPasswordSoleus',event.target.value);
+        Meteor.call('checkPasswordSoleus', event.target.value);
       };
     }
   });
@@ -1360,6 +1363,14 @@ if (Meteor.isClient) {
     };
   };
 
+  bgMusicLoop = function() {
+    window.requestAnimationFrame(bgMusicLoop);
+    audioS = Misc.findOne({name: 'Music'}).source;
+    if (audioSource != audioS) {
+      loadAudio(audioS);
+    };
+    audioSource = audioS;
+  };
 }
 
 if (Meteor.isServer) {
